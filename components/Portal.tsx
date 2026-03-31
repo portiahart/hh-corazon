@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/utils/supabase/client'
 import {
-  ClockIcon, DollarSignIcon, RulerHorizontalIcon, HeartFilledIcon,
+  ClockIcon, RulerHorizontalIcon, HeartFilledIcon,
   BackpackIcon, CalendarIcon, RocketIcon, CubeIcon, FaceIcon,
   PersonIcon, MagicWandIcon,
 } from '@radix-ui/react-icons'
@@ -34,7 +34,7 @@ export default function Portal({ userEmail }: { userEmail: string }) {
           <span>MARCAR ENTRADA / SALIDA</span>
         </a>
         <a href="https://cash.portiahart.com" style={{ ...s.heroBtn, background: '#1F2D3D', color: '#FFD000', border: '2.5px solid #1F2D3D' }}>
-          <DollarSignIcon width={40} height={40} />
+        <svg width={40} height={40} viewBox="0 0 15 15" fill="none"><path d="M7.50009 0C7.77623 0 8.00009 0.223858 8.00009 0.5V2.02311C9.55086 2.20873 10.643 3.05386 11 4.18115C11.0857 4.44366 10.9413 4.72431 10.6788 4.80999C10.4163 4.89568 10.1356 4.75128 10.05 4.48877C9.81039 3.74428 8.9835 3.0625 7.50009 3.0625C5.57472 3.0625 4.62509 3.93757 4.62509 4.875C4.62509 5.81243 5.57472 6.6875 7.50009 6.6875C9.82972 6.6875 11.3751 7.96257 11.3751 9.875C11.3751 11.6018 9.98815 12.7527 8.00009 12.9769V14.5C8.00009 14.7761 7.77623 15 7.50009 15C7.22394 15 7.00009 14.7761 7.00009 14.5V12.9791C5.15384 12.7988 3.92831 11.8335 3.57301 10.5505C3.49901 10.282 3.65461 10.0054 3.92313 9.93136C4.19164 9.85737 4.46823 10.013 4.54222 10.2815C4.81081 11.2656 5.86108 12.0625 7.50009 12.0625C9.42545 12.0625 10.3751 11.1874 10.3751 10.25C10.3751 9.31257 9.42545 8.4375 7.50009 8.4375C5.17045 8.4375 3.62509 7.16243 3.62509 5.25C3.62509 3.52325 5.01202 2.37274 7.00009 2.14876V0.5C7.00009 0.223858 7.22394 0 7.50009 0Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/></svg>
           <span>CASH APP</span>
         </a>
       </div>
