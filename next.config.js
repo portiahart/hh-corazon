@@ -1,23 +1,3 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'dqfrqjsbfmwtclkclmvc.supabase.co',
-      },
-    ],
-  },
-}
-
+const nextConfig = {}
 module.exports = nextConfig
-```
-
----
-
-**`.gitignore`**
-```
-.next/
-node_modules/
-.env.local
-.env
