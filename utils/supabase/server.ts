@@ -10,17 +10,16 @@ export function createClient() {
       cookies: {
         getAll() { return cookieStore.getAll() },
         setAll(cookiesToSet: { name: string; value: string; options?: Record<string, unknown> }[]) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, {
-                ...(options as object),
-                domain: '.portiahart.com',
-                path: '/',
-                sameSite: 'lax',
-                secure: true,
-              })
-            )
-          } catch {}
+          cookiesToSet.forEach(({ name, value, options }) => {
+            console.log('[server] setting cookie:', name, '| domain: .portiahart.com')
+            cookieStore.set(name, value, {
+              ...(options as object),
+              domain: '.portiahart.com',
+              path: '/',
+              sameSite: 'lax',
+              secure: true,
+            })
+          })
         },
       },
     }
