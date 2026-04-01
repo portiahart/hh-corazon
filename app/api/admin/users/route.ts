@@ -63,10 +63,16 @@ export async function POST(request: Request) {
 
   const userId = authData.user.id
 
-  // 2. Insert crm_users profile
+  // 2. Upsert crm_users profile.
+  // The on_auth_user_created trigger fires synchronously inside createUser() and
+  // may have already inserted a row for this UUID. Using upsert avoids the
+  // duplicate-key error while still writing display_name and active.
   const { error: profileError } = await admin
     .from('crm_users')
-    .insert({ id: userId, email: body.email, display_name: body.display_name, active: true })
+    .upsert(
+      { id: userId, email: body.email, display_name: body.display_name, active: true },
+      { onConflict: 'id' }
+    )
 
   if (profileError) {
     await admin.auth.admin.deleteUser(userId)
