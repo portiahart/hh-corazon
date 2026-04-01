@@ -5,10 +5,10 @@ import { createClient } from '@/utils/supabase/client'
 import {
   ClockIcon, RulerHorizontalIcon, HeartFilledIcon,
   BackpackIcon, CalendarIcon, RocketIcon, CubeIcon, FaceIcon,
-  PersonIcon, MagicWandIcon,
+  PersonIcon, MagicWandIcon, GearIcon, ExitIcon,
 } from '@radix-ui/react-icons'
 
-export default function Portal({ userEmail }: { userEmail: string }) {
+export default function Portal() {
   const router = useRouter()
   const supabase = createClient()
 
@@ -20,6 +20,17 @@ export default function Portal({ userEmail }: { userEmail: string }) {
 
   return (
     <div style={s.page}>
+
+      {/* Top-right controls */}
+      <div style={s.topBar}>
+        <a href="/admin" style={s.topBtn} aria-label="Ajustes">
+          <GearIcon width={17} height={17} />
+        </a>
+        <button onClick={handleLogout} style={s.topBtn} aria-label="Cerrar sesión">
+          <ExitIcon width={17} height={17} />
+        </button>
+      </div>
+
       <div style={s.logoWrap}>
         <img
           src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_black.png"
@@ -66,9 +77,6 @@ export default function Portal({ userEmail }: { userEmail: string }) {
         </div>
       </div>
 
-      <button onClick={handleLogout} style={s.logout}>
-        Cerrar sesión ({userEmail})
-      </button>
     </div>
   )
 }
@@ -78,7 +86,13 @@ function AppBtn({ href, style, children }: { href: string; style: React.CSSPrope
 }
 
 const s: Record<string, React.CSSProperties> = {
-  page: { maxWidth: 580, margin: '0 auto', padding: '40px 20px 60px', display: 'flex', flexDirection: 'column', gap: 12 },
+  page: { maxWidth: 580, margin: '0 auto', padding: '20px 20px 60px', display: 'flex', flexDirection: 'column', gap: 12 },
+  topBar: { display: 'flex', justifyContent: 'flex-end', gap: 4, marginBottom: 8 },
+  topBtn: {
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(31,45,61,0.35)',
+    padding: 8, borderRadius: 8, textDecoration: 'none', lineHeight: 0,
+  },
   logoWrap: { textAlign: 'center', marginBottom: 28 },
   logo: { height: 60, width: 'auto' },
   heroRow: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 },
@@ -97,9 +111,4 @@ const s: Record<string, React.CSSProperties> = {
   },
   btnIce: { background: '#F2F5F8', color: '#1F2D3D', border: '1.5px solid rgba(31,45,61,0.15)' },
   btnWhiteMango: { background: '#fff', color: '#FC0083', border: '1.5px solid rgba(255,255,255,0.5)' },
-  logout: {
-    marginTop: 8, background: 'none', border: 'none', color: '#7A91A5',
-    fontSize: '0.65rem', cursor: 'pointer', fontFamily: 'inherit',
-    letterSpacing: '0.05em', textAlign: 'center',
-  },
 }
