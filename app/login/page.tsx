@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import PasswordInput from '@/components/PasswordInput'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -64,13 +65,13 @@ export default function LoginPage() {
           required
           style={s.input}
         />
-        <input
-          type="password"
+        <PasswordInput
           placeholder="Contraseña"
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
-          style={s.input}
+          inputStyle={s.input}
+          btnColor="rgba(31,45,61,0.35)"
         />
         {error && <p style={s.error}>{error}</p>}
         <button type="submit" disabled={loading} style={s.submitBtn}>

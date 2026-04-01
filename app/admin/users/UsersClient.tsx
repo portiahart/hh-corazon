@@ -7,8 +7,8 @@ import {
   Pencil1Icon,
   CheckCircledIcon,
   CrossCircledIcon,
-  LockClosedIcon,
 } from '@radix-ui/react-icons'
+import PasswordInput from '@/components/PasswordInput'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -241,13 +241,13 @@ function CreateForm({ roles, companies, onSuccess, onCancel }: {
       />
 
       <FieldLabel>CONTRASEÑA TEMPORAL</FieldLabel>
-      <input
-        type="password"
+      <PasswordInput
         value={password}
         onChange={e => setPassword(e.target.value)}
         required
         minLength={8}
-        style={s.input}
+        inputStyle={s.input}
+        btnColor={C.muted}
         placeholder="Mínimo 8 caracteres"
         autoComplete="new-password"
       />
@@ -356,17 +356,14 @@ function EditForm({ user, roles, companies, onSuccess, onCancel }: {
         NUEVA CONTRASEÑA{' '}
         <span style={{ color: C.muted, fontWeight: 400 }}>(OPCIONAL)</span>
       </FieldLabel>
-      <div style={s.passwordRow}>
-        <LockClosedIcon style={{ color: C.muted, flexShrink: 0 }} />
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          style={{ ...s.input, flex: 1, border: 'none', padding: 0, background: 'transparent', outline: 'none' }}
-          placeholder="Dejar vacío para no cambiar"
-          autoComplete="new-password"
-        />
-      </div>
+      <PasswordInput
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        inputStyle={s.input}
+        btnColor={C.muted}
+        placeholder="Dejar vacío para no cambiar"
+        autoComplete="new-password"
+      />
 
       {error && <p style={s.errorText}>{error}</p>}
 
@@ -615,15 +612,6 @@ const s: Record<string, React.CSSProperties> = {
     fontFamily: 'inherit',
     outline: 'none',
     width: '100%',
-  },
-  passwordRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 10,
-    padding: '11px 13px',
-    borderRadius: 8,
-    border: `1.5px solid ${C.border}`,
-    background: C.surface,
   },
   toggleRow: {
     display: 'flex',
