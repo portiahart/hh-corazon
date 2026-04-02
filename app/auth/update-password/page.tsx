@@ -31,8 +31,13 @@ export default function UpdatePassword() {
 
   return (
     <div style={{minHeight:'100vh',background:'#1F2D3D',display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <div style={{background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'16px',padding:'48px 44px',width:'400px'}}>
-        <div style={{fontSize:'.55rem',letterSpacing:'.22em',textTransform:'uppercase',color:'#4A9B8E',marginBottom:'12px'}}>Hart Hospitality</div>
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',width:'400px'}}>
+        <img
+          src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_white.png"
+          alt="Hart Hospitality"
+          style={{height:64,width:'auto',objectFit:'contain',marginBottom:28}}
+        />
+      <div style={{background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.1)',borderRadius:'16px',padding:'48px 44px',width:'100%',boxSizing:'border-box'}}>
         <div style={{fontFamily:'Georgia,serif',fontSize:'2rem',color:'#F2F5F8',marginBottom:'8px',fontWeight:200}}>Set Password</div>
         <div style={{fontSize:'.7rem',color:'#7A91A5',marginBottom:'32px'}}>Min 12 characters · uppercase · number · symbol</div>
         <form onSubmit={handleSubmit}>
@@ -64,6 +69,7 @@ export default function UpdatePassword() {
             {loading ? 'Saving...' : 'Set password'}
           </button>
         </form>
+      </div>
       </div>
     </div>
   );

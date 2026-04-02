@@ -56,8 +56,15 @@ export default function AuthConfirm() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#1F2D3D', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ color: '#4A9B8E', fontFamily: 'Georgia, serif', fontSize: '1.2rem', fontWeight: 200, letterSpacing: '0.05em' }}>
-        Verifying your link...
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}>
+        <img
+          src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_white.png"
+          alt="Hart Hospitality"
+          style={{ height: 64, width: 'auto', objectFit: 'contain' }}
+        />
+        <div style={{ color: '#4A9B8E', fontFamily: 'Georgia, serif', fontSize: '1.2rem', fontWeight: 200, letterSpacing: '0.05em' }}>
+          Verifying your link...
+        </div>
       </div>
     </div>
   );
