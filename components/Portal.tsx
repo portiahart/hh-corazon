@@ -50,7 +50,7 @@ export default function Portal() {
         </a>
       </div>
 
-      <div style={{ ...s.box, background: '#4A9B8E', border: '2.5px solid #F2F5F8' }}>
+      <div style={{ ...s.box, background: '#4A9B8E' }}>
         <p style={{ ...s.boxLabel, color: 'rgba(242,245,248,0.7)' }}>ADMIN</p>
         <div style={s.grid2}>
           <AppBtn href="https://cash.portiahart.com" style={s.btnIce}><RulerHorizontalIcon /> CONTABILIDAD</AppBtn>
@@ -59,18 +59,18 @@ export default function Portal() {
         </div>
       </div>
 
-      <div style={{ ...s.box, background: '#F2F5F8', border: '2.5px solid #4A9B8E' }}>
+      <div style={{ ...s.box, background: '#F2F5F8' }}>
         <p style={{ ...s.boxLabel, color: 'rgba(31,45,61,0.45)' }}>OPS</p>
         <div style={s.grid2}>
-          <AppBtn href="#" style={{ ...s.btnMango, opacity: 0.4, pointerEvents: 'none' }}><CalendarIcon /> RESERVAS</AppBtn>
-          <AppBtn href="https://events.portiahart.com" style={s.btnMango}><RocketIcon /> PLANES DE EVENTOS</AppBtn>
-          <AppBtn href="#" style={{ ...s.btnMango, opacity: 0.4, pointerEvents: 'none' }}><CubeIcon /> INVENTARIOS</AppBtn>
-          <AppBtn href="https://vacantes.portiahart.com/" style={s.btnMango}><FaceIcon /> CANDIDATOS</AppBtn>
+          <AppBtn href="#" style={{ ...s.btnStillWater, opacity: 0.4, pointerEvents: 'none' }}><CalendarIcon /> RESERVAS</AppBtn>
+          <AppBtn href="https://events.portiahart.com" style={s.btnStillWater}><RocketIcon /> PLANES DE EVENTOS</AppBtn>
+          <AppBtn href="#" style={{ ...s.btnStillWater, opacity: 0.4, pointerEvents: 'none' }}><CubeIcon /> INVENTARIOS</AppBtn>
+          <AppBtn href="https://vacantes.portiahart.com/" style={s.btnStillWater}><FaceIcon /> CANDIDATOS</AppBtn>
         </div>
       </div>
 
-      <div style={{ ...s.box, background: '#FC0083', border: '2.5px solid #F2F5F8' }}>
-        <p style={{ ...s.boxLabel, color: 'rgba(242,245,248,0.7)' }}>VENTAS</p>
+      <div style={{ ...s.box, background: '#FFD000' }}>
+        <p style={{ ...s.boxLabel, color: 'rgba(31,45,61,0.55)' }}>VENTAS</p>
         <div style={s.grid2}>
           <AppBtn href="https://crm.portiahart.com" style={s.btnIce}><PersonIcon /> CRM</AppBtn>
           <AppBtn href="https://quote.portiahart.com" style={s.btnIce}><MagicWandIcon /> COTIZACIONES</AppBtn>
@@ -113,5 +113,5 @@ const s: Record<string, React.CSSProperties> = {
     fontSize: '0.63rem', fontWeight: 500, letterSpacing: '0.14em',
   },
   btnIce: { background: '#F2F5F8', color: '#1F2D3D', border: '1.5px solid rgba(31,45,61,0.15)' },
-  btnMango: { background: '#FC0083', color: '#F2F5F8', border: '1.5px solid rgba(252,0,131,0.3)' },
+  btnStillWater: { background: '#1F2D3D', color: '#F2F5F8', border: 'none' },
 }
