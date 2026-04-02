@@ -19,12 +19,13 @@ export default function Portal() {
   }
 
   return (
+    <div style={s.outer}>
     <div style={s.page}>
 
       <div style={s.logoRow}>
         <div style={s.logoSpacer} />
         <img
-          src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_black.png"
+          src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_white.png"
           alt="Hart Hospitality"
           style={s.logo}
         />
@@ -77,6 +78,7 @@ export default function Portal() {
       </div>
 
     </div>
+    </div>
   )
 }
 
@@ -85,13 +87,14 @@ function AppBtn({ href, style, children }: { href: string; style: React.CSSPrope
 }
 
 const s: Record<string, React.CSSProperties> = {
+  outer: { minHeight: '100vh', background: '#1F2D3D' },
   page: { maxWidth: 580, margin: '0 auto', padding: '20px 20px 60px', display: 'flex', flexDirection: 'column', gap: 12 },
   logoRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28 },
   logoSpacer: { display: 'flex', gap: 4, visibility: 'hidden', pointerEvents: 'none' },
   topBar: { display: 'flex', gap: 4 },
   topBtn: {
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(31,45,61,0.35)',
+    background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(242,245,248,0.45)',
     padding: 8, borderRadius: 8, textDecoration: 'none', lineHeight: 0,
   },
   logo: { height: 60, width: 'auto' },
