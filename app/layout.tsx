@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Hart Hospitality',
   icons: {
-    icon: 'https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/hart-favicon.png',
+    icon: '/favicon-mango.png',
   },
 }
 
