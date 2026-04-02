@@ -21,22 +21,21 @@ export default function Portal() {
   return (
     <div style={s.page}>
 
-      {/* Top-right controls */}
-      <div style={s.topBar}>
-        <a href="/admin" style={s.topBtn} aria-label="Ajustes">
-          <GearIcon width={17} height={17} />
-        </a>
-        <button onClick={handleLogout} style={s.topBtn} aria-label="Cerrar sesión">
-          <ExitIcon width={17} height={17} />
-        </button>
-      </div>
-
-      <div style={s.logoWrap}>
+      <div style={s.logoRow}>
+        <div style={s.logoSpacer} />
         <img
           src="https://dqfrqjsbfmwtclkclmvc.supabase.co/storage/v1/object/public/brand/HH_black.png"
           alt="Hart Hospitality"
           style={s.logo}
         />
+        <div style={s.topBar}>
+          <a href="/admin" style={s.topBtn} aria-label="Ajustes">
+            <GearIcon width={17} height={17} />
+          </a>
+          <button onClick={handleLogout} style={s.topBtn} aria-label="Cerrar sesión">
+            <ExitIcon width={17} height={17} />
+          </button>
+        </div>
       </div>
 
       <div style={s.heroRow}>
@@ -50,8 +49,8 @@ export default function Portal() {
         </a>
       </div>
 
-      <div style={{ ...s.box, background: '#4A9B8E' }}>
-        <p style={{ ...s.boxLabel, color: 'rgba(255,255,255,0.55)' }}>ADMIN</p>
+      <div style={{ ...s.box, background: '#4A9B8E', border: '2.5px solid #F2F5F8' }}>
+        <p style={{ ...s.boxLabel, color: 'rgba(242,245,248,0.7)' }}>ADMIN</p>
         <div style={s.grid2}>
           <AppBtn href="https://cash.portiahart.com" style={s.btnIce}><RulerHorizontalIcon /> CONTABILIDAD</AppBtn>
           <AppBtn href="https://prov.portiahart.com" style={s.btnIce}><HeartFilledIcon /> PROVEEDORES</AppBtn>
@@ -59,21 +58,21 @@ export default function Portal() {
         </div>
       </div>
 
-      <div style={{ ...s.box, background: '#1F2D3D' }}>
-        <p style={{ ...s.boxLabel, color: 'rgba(242,245,248,0.4)' }}>OPS</p>
+      <div style={{ ...s.box, background: '#F2F5F8', border: '2.5px solid #4A9B8E' }}>
+        <p style={{ ...s.boxLabel, color: 'rgba(31,45,61,0.45)' }}>OPS</p>
         <div style={s.grid2}>
-          <AppBtn href="#" style={{ ...s.btnIce, opacity: 0.4, pointerEvents: 'none' }}><CalendarIcon /> RESERVAS</AppBtn>
-          <AppBtn href="https://events.portiahart.com" style={s.btnIce}><RocketIcon /> PLANES DE EVENTOS</AppBtn>
-          <AppBtn href="#" style={{ ...s.btnIce, opacity: 0.4, pointerEvents: 'none' }}><CubeIcon /> INVENTARIOS</AppBtn>
-          <AppBtn href="https://vacantes.portiahart.com/" style={s.btnIce}><FaceIcon /> CANDIDATOS</AppBtn>
+          <AppBtn href="#" style={{ ...s.btnMango, opacity: 0.4, pointerEvents: 'none' }}><CalendarIcon /> RESERVAS</AppBtn>
+          <AppBtn href="https://events.portiahart.com" style={s.btnMango}><RocketIcon /> PLANES DE EVENTOS</AppBtn>
+          <AppBtn href="#" style={{ ...s.btnMango, opacity: 0.4, pointerEvents: 'none' }}><CubeIcon /> INVENTARIOS</AppBtn>
+          <AppBtn href="https://vacantes.portiahart.com/" style={s.btnMango}><FaceIcon /> CANDIDATOS</AppBtn>
         </div>
       </div>
 
-      <div style={{ ...s.box, background: '#FC0083' }}>
-        <p style={{ ...s.boxLabel, color: 'rgba(255,255,255,0.55)' }}>VENTAS</p>
+      <div style={{ ...s.box, background: '#FFD000', border: '2.5px solid #F2F5F8' }}>
+        <p style={{ ...s.boxLabel, color: 'rgba(31,45,61,0.55)' }}>VENTAS</p>
         <div style={s.grid2}>
-          <AppBtn href="https://crm.portiahart.com" style={s.btnWhiteMango}><PersonIcon /> CRM</AppBtn>
-          <AppBtn href="https://quote.portiahart.com" style={s.btnWhiteMango}><MagicWandIcon /> COTIZACIONES</AppBtn>
+          <AppBtn href="https://crm.portiahart.com" style={s.btnIce}><PersonIcon /> CRM</AppBtn>
+          <AppBtn href="https://quote.portiahart.com" style={s.btnIce}><MagicWandIcon /> COTIZACIONES</AppBtn>
         </div>
       </div>
 
@@ -87,13 +86,14 @@ function AppBtn({ href, style, children }: { href: string; style: React.CSSPrope
 
 const s: Record<string, React.CSSProperties> = {
   page: { maxWidth: 580, margin: '0 auto', padding: '20px 20px 60px', display: 'flex', flexDirection: 'column', gap: 12 },
-  topBar: { display: 'flex', justifyContent: 'flex-end', gap: 4, marginBottom: 8 },
+  logoRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28 },
+  logoSpacer: { display: 'flex', gap: 4, visibility: 'hidden', pointerEvents: 'none' },
+  topBar: { display: 'flex', gap: 4 },
   topBtn: {
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(31,45,61,0.35)',
     padding: 8, borderRadius: 8, textDecoration: 'none', lineHeight: 0,
   },
-  logoWrap: { textAlign: 'center', marginBottom: 28 },
   logo: { height: 60, width: 'auto' },
   heroRow: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 },
   heroBtn: {
@@ -101,7 +101,7 @@ const s: Record<string, React.CSSProperties> = {
     textAlign: 'center', textDecoration: 'none', borderRadius: 14, padding: '28px 16px',
     gap: 16, fontSize: '0.66rem', fontWeight: 500, letterSpacing: '0.14em', lineHeight: 1.4,
   },
-  box: { borderRadius: 14, padding: '22px 20px', border: '2.5px solid #1F2D3D' },
+  box: { borderRadius: 14, padding: '22px 20px' },
   boxLabel: { fontSize: '0.58rem', fontWeight: 500, letterSpacing: '0.24em', marginBottom: 12 },
   grid2: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 },
   appBtn: {
@@ -110,5 +110,5 @@ const s: Record<string, React.CSSProperties> = {
     fontSize: '0.63rem', fontWeight: 500, letterSpacing: '0.14em',
   },
   btnIce: { background: '#F2F5F8', color: '#1F2D3D', border: '1.5px solid rgba(31,45,61,0.15)' },
-  btnWhiteMango: { background: '#fff', color: '#FC0083', border: '1.5px solid rgba(255,255,255,0.5)' },
+  btnMango: { background: '#FFD000', color: '#F2F5F8', border: '1.5px solid rgba(255,208,0,0.4)' },
 }
